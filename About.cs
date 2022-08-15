@@ -20,12 +20,12 @@ namespace វចនានុក្រម
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form3 FC = new Form3();
-            FC.value = textBox1.Text;
-            if (FC.ShowDialog()==DialogResult.OK)
-            {
-                this.textBox1.Text = FC.value;
-            }
+            //Form3 FC = new Form3();
+            //FC.value = textBox1.Text;
+            //if (FC.ShowDialog()==DialogResult.OK)
+            //{
+            //    this.textBox1.Text = FC.value;
+            //}
         }
     }
 }

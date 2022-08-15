@@ -1,12 +1,9 @@
-﻿namespace វចនានុក្រម
+﻿using វចនានុក្រម.Models;
+namespace វចនានុក្រម
 {
     public partial class Dictionary : Form
     {
-        public class DBModel
-        {
-            public string word { get; set; }
-            public string description { get; set; }
-        }
+        
         public List<string> database_word = new List<string>()
             {
                 "Apple",
@@ -122,6 +119,17 @@
                     break;
             }
         }
+        private void database2(string keyword)
+        {
+            foreach(var data in this.database_word2)
+            {
+                if (keyword == data.word)
+                {
+                    this.richTextBox_answer.ResetText();
+                    this.richTextBox_answer.AppendText(data.description);
+                }
+            }
+        }
 
         private void btn_next_Click(object sender, EventArgs e)
         {
@@ -173,6 +181,7 @@
                         }
                         
                     }
+                    
                 }
                 
             }
@@ -191,14 +200,31 @@
 
         private void InsertDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3();
-            form3.ShowDialog();
+            Form3 form3 = new Form3(database_word2);
+            
+            if (form3.ShowDialog() == DialogResult.OK)
+            {
+                List<DBModel> db = form3.DB2;
+                //foreach (DBModel data in this.database_word2)
+                //{
+                //    this.database_word2.Remove(data);
+                //    this.listbox_word.Items.Remove(data.word);
+                //}
+                this.listbox_word.Items.Clear();
+                this.database_word2.Clear();
+
+                foreach (var data in db)
+                {
+                    this.database_word2.Add(data);
+                    this.listbox_word.Items.Add(data.word);
+                }
+            }
         }
 
         private void listbox_word_Click(object sender, EventArgs e)
         {
             string keyword = this.listbox_word.Text;
-            database(keyword);
+            database2(keyword);
         }
     }
 }
