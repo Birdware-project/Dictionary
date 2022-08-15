@@ -37,8 +37,6 @@
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox_search = new System.Windows.Forms.TextBox();
-            this.btn_find = new System.Windows.Forms.Button();
-            this.btn_next = new System.Windows.Forms.Button();
             this.richTextBox_answer = new System.Windows.Forms.RichTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listbox_word = new System.Windows.Forms.ListBox();
@@ -90,23 +88,23 @@
             // ToolStripMenuItemAbout
             // 
             this.ToolStripMenuItemAbout.Name = "ToolStripMenuItemAbout";
-            this.ToolStripMenuItemAbout.Size = new System.Drawing.Size(180, 30);
+            this.ToolStripMenuItemAbout.Size = new System.Drawing.Size(160, 30);
             this.ToolStripMenuItemAbout.Text = "អំពី";
-            this.ToolStripMenuItemAbout.Click += new System.EventHandler(this.អពToolStripMenuItem_Click);
+            this.ToolStripMenuItemAbout.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // ToolStripMenuItemDoc
             // 
             this.ToolStripMenuItemDoc.Name = "ToolStripMenuItemDoc";
-            this.ToolStripMenuItemDoc.Size = new System.Drawing.Size(180, 30);
+            this.ToolStripMenuItemDoc.Size = new System.Drawing.Size(160, 30);
             this.ToolStripMenuItemDoc.Text = "របៀបប្រើប្រាស់";
             this.ToolStripMenuItemDoc.Click += new System.EventHandler(this.ToolStripMenuItemDoc_Click);
             // 
             // InsertDataToolStripMenuItem
             // 
             this.InsertDataToolStripMenuItem.Name = "InsertDataToolStripMenuItem";
-            this.InsertDataToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
+            this.InsertDataToolStripMenuItem.Size = new System.Drawing.Size(160, 30);
             this.InsertDataToolStripMenuItem.Text = "មតិអ្នកប្រើប្រាស់";
-            this.InsertDataToolStripMenuItem.Click += new System.EventHandler(this.មតអនកបរបរសToolStripMenuItem_Click);
+            this.InsertDataToolStripMenuItem.Click += new System.EventHandler(this.InsertDataToolStripMenuItem_Click);
             // 
             // ExitToolStripMenuItem
             // 
@@ -114,7 +112,7 @@
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
             this.ExitToolStripMenuItem.Size = new System.Drawing.Size(68, 29);
             this.ExitToolStripMenuItem.Text = "ចាកចេញ";
-            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ចកចញToolStripMenuItem_Click);
+            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // label3
             // 
@@ -131,34 +129,9 @@
             this.textBox_search.Location = new System.Drawing.Point(119, 214);
             this.textBox_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_search.Name = "textBox_search";
-            this.textBox_search.Size = new System.Drawing.Size(372, 23);
+            this.textBox_search.Size = new System.Drawing.Size(569, 23);
             this.textBox_search.TabIndex = 6;
-            this.textBox_search.TextChanged += new System.EventHandler(this.SearchWord);
-            // 
-            // btn_find
-            // 
-            this.btn_find.BackColor = System.Drawing.Color.Yellow;
-            this.btn_find.Font = new System.Drawing.Font("Khmer OS System", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_find.Location = new System.Drawing.Point(495, 211);
-            this.btn_find.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_find.Name = "btn_find";
-            this.btn_find.Size = new System.Drawing.Size(107, 28);
-            this.btn_find.TabIndex = 7;
-            this.btn_find.Text = "ប្រអប់ស្វែងរក";
-            this.btn_find.UseVisualStyleBackColor = false;
-            // 
-            // btn_next
-            // 
-            this.btn_next.BackColor = System.Drawing.Color.Lime;
-            this.btn_next.Font = new System.Drawing.Font("Khmer OS System", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_next.Location = new System.Drawing.Point(607, 211);
-            this.btn_next.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_next.Name = "btn_next";
-            this.btn_next.Size = new System.Drawing.Size(82, 28);
-            this.btn_next.TabIndex = 8;
-            this.btn_next.Text = "បកប្រែ";
-            this.btn_next.UseVisualStyleBackColor = false;
-            this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
+            this.textBox_search.TextChanged += new System.EventHandler(this.SearchWord2);
             // 
             // richTextBox_answer
             // 
@@ -194,7 +167,6 @@
             this.listbox_word.Size = new System.Drawing.Size(133, 224);
             this.listbox_word.TabIndex = 13;
             this.listbox_word.Click += new System.EventHandler(this.listbox_word_Click);
-            this.listbox_word.SelectedIndexChanged += new System.EventHandler(this.listbox_word_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -281,8 +253,6 @@
             this.Controls.Add(this.listbox_word);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.richTextBox_answer);
-            this.Controls.Add(this.btn_next);
-            this.Controls.Add(this.btn_find);
             this.Controls.Add(this.textBox_search);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.menuStrip1);
@@ -307,8 +277,6 @@
         private ToolStripMenuItem ExitToolStripMenuItem;
         private Label label3;
         private TextBox textBox_search;
-        private Button btn_find;
-        private Button btn_next;
         private RichTextBox richTextBox_answer;
         private PictureBox pictureBox1;
         private ListBox listbox_word;

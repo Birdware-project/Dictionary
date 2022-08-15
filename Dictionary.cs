@@ -2,6 +2,11 @@
 {
     public partial class Dictionary : Form
     {
+        public class DBModel
+        {
+            public string word { get; set; }
+            public string description { get; set; }
+        }
         public List<string> database_word = new List<string>()
             {
                 "Apple",
@@ -21,30 +26,32 @@
                 "Peaches",
                 "Pineapple"
             };
+        public List<DBModel> database_word2 = new List<DBModel>()
+        {
+            new DBModel() { word = "Apple",description="Apple ( n ) ផ្លែប៉ោម" },
+            new DBModel() { word = "Banana",description="Banana ( n )  ផ្លែចេក" },
+            new DBModel() { word = "Bat",description="Bat ( n )  សត្វប្រចៀវ " },
+            new DBModel() { word = "Coconut",description="Coconut ( n )  ផ្លែដូង " },
+            new DBModel() { word = "Durian",description="Durian ( n )  ផ្លែធូរ៉េន " },
+        };
         public Dictionary()
         {
             InitializeComponent();
-            
-            foreach (string data in this.database_word)
+
+            foreach (DBModel data in this.database_word2)
             {
-                this.listbox_word.Items.Add(data);
+                this.listbox_word.Items.Add(data.word);
             }
-
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
+            this.listbox_word.Sorted = true;
 
         }
 
-        private void ចកចញToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void listbox_word_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
         private void database(string keyword)
         {
             switch (keyword)
@@ -125,7 +132,7 @@
         private void SearchWord(object sender, EventArgs e)
         {
 
-            foreach(string word_input in this.database_word)
+            foreach (string word_input in this.database_word)
             {
                 if (this.textBox_search.Text.ToLower() == word_input.ToLower())
                 {
@@ -148,8 +155,29 @@
                 }
             }
         }
-
-        private void អពToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SearchWord2(object sender, EventArgs e)
+        {
+            foreach (DBModel word_input in this.database_word2)
+            {
+                //
+                if (word_input.word.ToLower().Contains(this.textBox_search.Text.ToLower()))
+                {
+                    foreach (DBModel data in this.database_word2)
+                    {
+                        if (!data.word.ToLower().Contains(this.textBox_search.Text.ToLower()))
+                        {
+                            this.listbox_word.Items.Remove(data.word);
+                        }else if (!listbox_word.Items.Contains(data.word))
+                        {
+                            this.listbox_word.Items.Add(data.word);
+                        }
+                        
+                    }
+                }
+                
+            }
+        }
+        private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             About about = new About();
             about.ShowDialog();
@@ -161,7 +189,7 @@
             doc.ShowDialog();
         }
 
-        private void មតអនកបរបរសToolStripMenuItem_Click(object sender, EventArgs e)
+        private void InsertDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form3 form3 = new Form3();
             form3.ShowDialog();
@@ -169,7 +197,8 @@
 
         private void listbox_word_Click(object sender, EventArgs e)
         {
-
+            string keyword = this.listbox_word.Text;
+            database(keyword);
         }
     }
 }
